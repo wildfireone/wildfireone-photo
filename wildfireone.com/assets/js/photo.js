@@ -44,10 +44,13 @@ function getGallery(id, element,callback){
 function getPhoto(id,element,callback){
   _500px.api('/photos/'+id,{ image_size: 1080 }, function (response) {
     //console.log(response.data);
+
+
     var photo = response.data.photo;
+    //console.log(photo);
     element.append(
       // '<a href="'+photo.image_url+'">'+
-      '<img src="'+photo.image_url+'" alt="" />'
+      '<img src="'+photo.image_url+'" alt="'+photo.name+'" />'
           // <figure>It's a dummy caption. He who searches for meaning here will be sorely disappointed.</figure>
       // '</a>'
     );
