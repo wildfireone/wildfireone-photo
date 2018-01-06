@@ -67,7 +67,7 @@
 								$this.css('height', '');
 
 								if ($this.height() <= wh)
-									$this.css('height', (wh - 50) + 'px');
+									$this.css('height', (wh+50) + 'px');
 
 							});
 
@@ -86,38 +86,7 @@
 				);
 			});
 
-		// Gallery.
-			$window.on('load', function() {
 
-				var $gallery = $('.gallery');
-
-				$gallery.poptrox({
-					baseZIndex: 10001,
-					useBodyOverflow: false,
-					usePopupEasyClose: false,
-					overlayColor: '#1f2328',
-					overlayOpacity: 0.65,
-					usePopupDefaultStyling: false,
-					usePopupCaption: true,
-					popupLoaderText: '',
-					windowMargin: 50,
-					usePopupNav: true
-				});
-
-				// Hack: Adjust margins when 'small' activates.
-					skel
-						.on('-small', function() {
-							$gallery.each(function() {
-								$(this)[0]._poptrox.windowMargin = 50;
-							});
-						})
-						.on('+small', function() {
-							$gallery.each(function() {
-								$(this)[0]._poptrox.windowMargin = 5;
-							});
-						});
-
-			});
 
 		// Section transitions.
 			if (skel.canUse('transition')) {
@@ -216,7 +185,7 @@
 						// Update scrolly links.
 							$('a[href^="#"]').scrolly({
 								speed: 1500,
-								offset: $header.outerHeight() - 1
+								offset: 0
 							});
 
 						// Re-enable animations/transitions.
@@ -232,6 +201,64 @@
 					$window.trigger('resize');
 				});
 
+
+				run500px();
+
+
+
+
 	});
+
+	function run500px(){
+		_500px.init({
+			sdk_key: '1432fae088a34f857132fd6697e562672c39f415'
+		});
+
+
+
+
+var userid = '2180129';
+		 _500px.api('/users/'+userid+'/galleries', function (response) {
+console.log(response);
+						 var galleries = response.data['galleries'];
+						galleries.forEach(function(gallery){
+
+
+							if(gallery.custom_path == 'scottish-landscapes'){
+								console.log(gallery);
+								var thumbdiv = $('#img1');
+								makeGallery(gallery, thumbdiv);
+								//getGallery(gallery.id, thumbdiv);
+							}
+							if(gallery.custom_path == 'animals-wildlife'){
+								var thumbdiv = $('#img2');
+								makeGallery(gallery, thumbdiv);
+								//getGallery(gallery.id, thumbdiv);
+							}
+							if(gallery.custom_path == 'kirriemuir-angus'){
+								var thumbdiv = $('#img3');
+								makeGallery(gallery, thumbdiv);
+								//getGallery(gallery.id, thumbdiv);
+							}
+							if(gallery.custom_path == 'forests-and-woodland'){
+								var thumbdiv = $('#img4');
+								makeGallery(gallery, thumbdiv);
+								//getGallery(gallery.id, thumbdiv);
+							}
+						});
+
+				 });
+
+				 function makeGallery(gallery, thumbdiv){
+					 thumbdiv.append(
+
+					 '<a href="gallery.html?gallery='+gallery.id+'" class="image fit">'+
+					 '<h3>'+gallery.name+'</h3>'+
+					 '<img src="'+gallery.thumbnail_photos[0].image_url+'" title="'+gallery.thumbnail_photos[0].name+'" alt="" />'+
+					 '</a>');
+				 }
+
+
+	}
 
 })(jQuery);

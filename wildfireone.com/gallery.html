@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<!--
+	Based on Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+  <title>WildFireOne Photography</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="unitegallery/dist/css/unite-gallery.css" />
+
+
+
+  <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body>
+
+  <header id="header">
+    <a href="index.html#work"><h1>WildFireOne Photography</h1></a>
+    <nav>
+      <ul>
+        <li><a href="index.html#intro">Intro</a></li>
+        <li><a href="index.html#one">Who I Am</a></li>
+        <li><a href="index.html#two">What I Do</a></li>
+        <li><a href="index.html#work">My Work</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="maingallery" style="margin: 0px auto; max-width: 100%; min-width: 150px; overflow: visible; height: auto; width: auto;" class="ug-gallery-wrapper ug-theme-tiles">
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer id="footer">
+
+    <!-- Icons -->
+    <ul class="actions">
+      <li><a href="https://twitter.com/wildfireone" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="https://www.facebook.com/WildFireOne" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+      <li><a href="https://www.linkedin.com/in/johnisaacs/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+      <li><a href="https://500px.com/johnisaacs" class="icon fa-500px"><span class="label">500px</span></a></li>
+      <li><a href="https://www.flickr.com/photos/thewildfireone/" class="icon fa-flickr"><span class="label">Flickr</span></a></li>
+    </ul>
+
+    <!-- Menu -->
+    <ul class="menu">
+      <li>&copy; Wildfireone Designs</li>
+    </ul>
+
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.poptrox.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/500px.js"></script>
+  <script src="assets/js/photo.js"></script>
+  <script src="unitegallery/dist/js/unitegallery.js"></script>
+  <script type='text/javascript' src='unitegallery/dist/themes/tiles/ug-theme-tiles.js'></script>
+
+  <script>
+
+    jQuery(document).ready(function() {
+      var galleryid = getParameterByName('gallery');
+      getGallery(galleryid, $('#maingallery'), function() {
+        jQuery("#maingallery").unitegallery({
+          tile_enable_textpanel: true,
+          tile_textpanel_title_text_align: "center",
+          tiles_type: "justified",
+          theme_enable_preloader: true
+        });
+document.getElementById("maingallery").style.visibility = "visible";
+      });
+    });
+  </script>
+</body>
+
+</html>
