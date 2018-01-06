@@ -17,6 +17,7 @@ $('#formmessage').val("");
 
 
   console.log(from_name+":"+reply_to+":"+message_html);
+  toastr.info('Sending Message')
   sendEmail(from_name,message_html,reply_to);
 }
 

@@ -185,7 +185,7 @@
 						// Update scrolly links.
 							$('a[href^="#"]').scrolly({
 								speed: 1500,
-								offset: 0
+								offset: -50
 							});
 
 						// Re-enable animations/transitions.
@@ -219,13 +219,12 @@
 
 var userid = '2180129';
 		 _500px.api('/users/'+userid+'/galleries', function (response) {
-console.log(response);
 						 var galleries = response.data['galleries'];
 						galleries.forEach(function(gallery){
 
 
 							if(gallery.custom_path == 'scottish-landscapes'){
-								console.log(gallery);
+								
 								var thumbdiv = $('#img1');
 								makeGallery(gallery, thumbdiv);
 								//getGallery(gallery.id, thumbdiv);
